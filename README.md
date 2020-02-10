@@ -1,4 +1,4 @@
-##F11jikanwari
+#F11jikanwari
 
 a simple timetable app.
 
