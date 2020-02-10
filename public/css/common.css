@@ -1,0 +1,382 @@
+*{
+    margin: 0;
+}
+html, body
+{
+    height: 100%;
+}
+
+.flex{
+    display: flex;
+    flex-wrap: wrap;
+}
+.upperbar {
+    display: flex;
+    background-color: gray;
+    color: white;
+    width: 100%;
+    font-weight: bolder;
+    text-align: center;
+
+}
+.uppersmall{
+    width:5.5%;
+    line-height: 8vh;
+    height:8vh;
+    border-style: solid;
+    border-color: gray;
+    border-width: 1px;
+    text-align: center;
+    vertical-align: center;
+    overflow: hidden;
+    text-overflow:-o-ellipsis-lastline;
+    font-size: 40px;
+}
+.upperwide{
+    line-height: 8vh;
+    width:15.7%;
+    height:8vh;
+    border-style: solid;
+    border-color: gray;
+    border-width: 1px;
+    text-align: center;
+    vertical-align: middle;
+    overflow: hidden;
+    text-overflow:-o-ellipsis-lastline;
+    font-size: 40px;
+}
+.normalsmall{
+    line-height: 12.5vh;
+    width:5.5%;
+    height:12.1vh;
+    border-style: solid;
+    border-color: gray;
+    border-width: 1px;
+    text-align: center;
+    vertical-align: center;
+    overflow: hidden;
+    text-overflow:-o-ellipsis-lastline;
+    font-size: 40px;
+}
+.normalwide{
+    line-height: 12.5vh;
+    width:15.7%;
+    height:12.1vh;
+    border-style: solid;
+    border-color: gray;
+    border-width: 1px;
+    text-align: center;
+    vertical-align: center;
+    overflow: hidden;
+    text-overflow:-o-ellipsis-lastline;
+    font-size: 40px;
+}
+.newcourse{
+    position:fixed;
+    right:50px;
+    bottom:50px;
+    color: white;
+    width: 100px;
+    height: 100px;
+    background-color: deeppink;
+    font-weight: bolder;
+    font-size: 70px;
+    line-height: 100px;
+    text-align: center;
+    vertical-align: center;
+    border-color: deeppink;
+    border-radius: 50px;
+    border-style: solid;
+}
+
+
+
+
+header {
+    padding:10px;
+    background: skyblue;
+}
+
+#nav-drawer {
+    position: relative;
+}
+
+/*チェックボックス等は非表示に*/
+.nav-unshown {
+    display:none;
+}
+
+/*アイコンのスペース*/
+#nav-open {
+    display: inline-block;
+    width: 30px;
+    height: 22px;
+    vertical-align: middle;
+}
+
+/*ハンバーガーアイコンをCSSだけで表現*/
+#nav-open span, #nav-open span:before, #nav-open span:after {
+    position: absolute;
+    height: 3px;/*線の太さ*/
+    width: 25px;/*長さ*/
+    border-radius: 3px;
+    background: #ffffff;
+    display: block;
+    content: '';
+    cursor: pointer;
+}
+#nav-open span:before {
+    bottom: -8px;
+}
+#nav-open span:after {
+    bottom: -16px;
+}
+
+/*閉じる用の薄黒カバー*/
+#nav-close {
+    display: none;/*はじめは隠しておく*/
+    position: fixed;
+    z-index: 99;
+    top: 0;/*全体に広がるように*/
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    opacity: 0;
+    transition: .3s ease-in-out;
+}
+
+/*中身*/
+#nav-content {
+    overflow: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;/*最前面に*/
+    width: 90%;/*右側に隙間を作る（閉じるカバーを表示）*/
+    max-width: 330px;/*最大幅（調整してください）*/
+    height: 100%;
+    background: #fff;/*背景色*/
+    transition: .3s ease-in-out;/*滑らかに表示*/
+    -webkit-transform: translateX(-105%);
+    transform: translateX(-105%);/*左に隠しておく*/
+}
+
+/*チェックが入ったらもろもろ表示*/
+#nav-input:checked ~ #nav-close {
+    display: block;/*カバーを表示*/
+    opacity: .5;
+}
+
+#nav-input:checked ~ #nav-content {
+    -webkit-transform: translateX(0%);
+    transform: translateX(0%);/*中身を表示（右へスライド）*/
+    box-shadow: 6px 0 25px rgba(0,0,0,.15);
+}
+.courseitem{
+    margin-top:10px;
+    background-color: silver;
+    border-radius: 5px;
+    margin-left:5px;
+    width:155px;
+}
+.courseitems{
+    display: flex;
+    flex-wrap: wrap;
+}
+.coursename{
+    margin-top:10px;
+    margin-left:10px;
+    color: white;
+    font-size: 20px;
+    font-weight: bolder;
+    text-wrap:normal;
+    overflow-wrap: break-word;
+}
+.place{
+    margin-left:10px;
+    color: white;
+    font-size: 15px;
+}
+.teachername{
+    margin-left:10px;
+    color: white;
+    font-size: 15px;
+}
+@media screen and (min-width: 770px){
+
+    .pclayout{
+        display: flex;
+    }
+    .courseitems{
+        margin-left: 50px;
+        margin-right: 50px;
+    }
+
+}
+
+@media screen and (max-width: 770px) and (min-width:690px) {
+    .upperbar {
+        font-size: 40px;
+    }
+    .upperwide{
+        width: 15.6%;
+    }
+    .normalwide{
+        width: 15.6%;
+    }
+}
+@media screen and (max-width: 690px) and (min-width: 675px) {
+    .upperbar {
+        font-size: 40px;
+    }
+    .uppersmall{
+        width: 5.2%;
+        font-size: 30px;
+    }
+    .normalsmall{
+        width: 5.2%;
+        font-size: 30px;
+    }
+    .upperwide{
+        width: 15.6%;
+        font-size: 30px;
+    }
+    .normalwide{
+        width: 15.6%;
+        font-size: 30px;
+    }
+
+}
+@media screen and (max-width: 675px) and (min-width: 650px) {
+
+    .uppersmall{
+        width: 5.2%;
+        font-size: 30px;
+    }
+    .normalsmall{
+        width: 5.2%;
+        font-size: 30px;
+    }
+    .upperbar {
+        font-size: 40px;
+    }
+    .upperwide{
+        width: 15.6%;
+        font-size: 30px;
+    }
+    .normalwide{
+        width: 15.6%;
+        font-size: 30px;
+    }
+
+}
+@media screen and (max-width: 650px) and (min-width: 590px) {
+
+    .upperbar {
+        font-size: 40px;
+    }
+    .uppersmall{
+        width: 5.2%;
+        font-size: 30px;
+    }
+    .normalsmall{
+        width: 5.2%;
+        font-size: 30px;
+    }
+    .upperwide{
+        width: 15.6%;
+        font-size: 30px;
+    }
+    .normalwide{
+        width: 15.6%;
+        font-size: 30px;
+    }
+
+}
+@media screen and (max-width: 590px) and (min-width: 580px) {
+
+    .upperbar {
+        font-size: 40px;
+    }
+    ..uppersmall{
+        width: 5.2%;
+        font-size: 30px;
+    }
+    .normalsmall{
+        width: 5.2%;
+        font-size: 30px;
+    }
+    .upperwide{
+        width: 15.6%;
+        font-size: 30px;
+    }
+    .normalwide{
+        width: 15.6%;
+        font-size: 30px;
+    }
+
+}
+@media screen and (max-width: 580px) and (min-width: 530px)   {
+    .upperbar {
+        font-size: 30px;
+    }
+    .uppersmall{
+        font-size: 20px;
+    }
+    .upperwide{
+        width: 15.6%;
+        font-size: 20px;
+    }
+    .normalsmall{
+        height:11.7vh;
+        font-size: 20px;
+    }
+    .normalwide{
+        width: 15.6%;
+        height:11.7vh;
+        font-size: 20px;
+    }
+
+}
+
+@media screen and (max-width: 530px)  {
+    .upperbar {
+        font-size: 30px;
+    }
+    .uppersmall{
+        font-size: 20px;
+    }
+    .upperwide{
+        width: 15.5%;
+        font-size: 20px;
+    }
+    .normalsmall{
+        height:11.7vh;
+        font-size: 20px;
+    }
+    .normalwide{
+        width: 15.5%;
+        height:11.7vh;
+        font-size: 20px;
+    }
+    .newcourse{
+        display: inline-block;
+        position:fixed;
+        right:50px;
+        bottom:50px;
+        color: white;
+        width: 60px;
+        height: 60px;
+        background-color: deeppink;
+        font-weight: bolder;
+        font-size: 50px;
+        line-height: 60px;
+        text-align: center;
+        vertical-align: center;
+        border-color: deeppink;
+        border-radius: 30px;
+        border-style: solid;
+    }
+
+}
